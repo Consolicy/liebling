@@ -35,6 +35,7 @@ $(document).ready(() => {
                 captureOutboundLink(this.href)
                 return false
             })
+            this.target = "_blank"
             $(this).wrap("<span class='icon-star' aria-hidden='true'></span>")
         }
     })
