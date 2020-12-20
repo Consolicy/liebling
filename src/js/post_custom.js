@@ -35,8 +35,7 @@ $(document).ready(() => {
         }, 2000, this)
     })
 
-    const heading = $('#ingredients')
-    heading.nextUntil(heading.attr('type')).find('li').each(function() {
+    $('#ingredients').siblings('ol, ul').first().find('li').each(function() {
         const text = $(this).text()
         for (const { regex, from } of $ingredients) {
             const match = regex.exec(text)
