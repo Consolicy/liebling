@@ -24,5 +24,13 @@
     { "from": "/ingredients/cinnamon-powder", "to":"https://amzn.to/3gd6qbM", "permanent": false, "regex": "(Cinnamon Powder)" },
     { "from": "/ingredients/cardamom", "to":"https://amzn.to/3opD8cS", "permanent": false, "regex": "(Cardamom)" },
     { "from": "/ingredients/cloves", "to":"https://amzn.to/3gcIqFR", "permanent": false, "regex": "(Cloves)" },
-    { "from": "/ingredients/star-anise", "to":"https://amzn.to/2VEJRU3", "permanent": false, "regex": "(Star Anise)" }
+    { "from": "/ingredients/star-anise", "to":"https://amzn.to/2VEJRU3", "permanent": false, "regex": "(Star Anise)" },
+    { "from": "/ingredients/oil-for-frying", "to":"https://amzn.to/34w2VIM", "permanent": false, "regex": "(Oil for Frying)" },
+    { "from": "/ingredients/soy-sauce", "to":"https://amzn.to/2Wuvjqu", "permanent": false, "regex": "(Soy Sauce)" },
+    { "from": "/ingredients/vinegar", "to":"https://amzn.to/3h5BrPd", "permanent": false, "regex": "(Vinegar)" },
+    { "from": "/ingredients/chili-sauce", "to":"https://amzn.to/3nElCl1", "permanent": false, "regex": "(Chili Sauce)" },
+    { "from": "/ingredients/honey", "to":"https://amzn.to/37Bagcf", "permanent": false, "regex": "(Honey)" },
+    { "from": "/ingredients/olive-oil", "to":"https://amzn.to/3nPtZut", "permanent": false, "regex": "(Olive Oil)" },
+    { "from": "/ingredients/corn-starch", "to":"https://amzn.to/3nBuAzL", "permanent": false, "regex": "(Corn Starch)" },
+    { "from": "/ingredients/ketchup", "to":"https://amzn.to/3nIyZB2", "permanent": false, "regex": "(Ketchup)" }
 ]
