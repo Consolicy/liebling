@@ -8,12 +8,12 @@ import $redirects from './redirects.json'
 * using 'navigator.sendBeacon' in browser that support it.
 */
 var captureOutboundLink = function (url) {
-    if (ga) {
-        ga('send', 'event', 'outbound', 'click', url, {
-            'transport': 'beacon',
-            'hitCallback': function () { document.location = url; }
-        });
-    }
+    gtag('event', 'click', {
+        'event_category': 'outbound',
+        'event_label': url,
+        'transport_type': 'beacon',
+        'event_callback': function () { window.open(url, "_blank"); }
+    });
 }
 
 const $ingredients = $redirects.map((r) => {
@@ -22,8 +22,8 @@ const $ingredients = $redirects.map((r) => {
 })
 
 $(document).ready(() => {
-    $('iframe').each(function () {        
-        setTimeout(function(element) {
+    $('iframe').each(function () {
+        setTimeout(function (element) {
             const src = element.src
             if (src.indexOf('youtube.com') >= 0) {
                 if (src.indexOf('?') > 0) {
@@ -35,7 +35,7 @@ $(document).ready(() => {
         }, 2000, this)
     })
 
-    $('#ingredients').siblings('ol, ul').first().find('li').each(function() {
+    $('#ingredients').siblings('ol, ul').first().find('li').each(function () {
         const text = $(this).text()
         for (const { regex, from } of $ingredients) {
             const match = regex.exec(text)
@@ -48,7 +48,7 @@ $(document).ready(() => {
                     target: '_blank'
                 })
                 anchor.text(ingredient)
-                anchor.on('click', function() {
+                anchor.on('click', function () {
                     captureOutboundLink(this.href)
                     return false
                 })
