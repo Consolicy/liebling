@@ -8,12 +8,17 @@ import $redirects from './redirects.json'
 * using 'navigator.sendBeacon' in browser that support it.
 */
 var captureOutboundLink = function (url) {
-    gtag('event', 'click', {
-        'event_category': 'outbound',
-        'event_label': url,
-        'transport_type': 'beacon',
-        'event_callback': function () { window.open(url, "_blank"); }
-    });
+    const canCapture = !!(window['google_tag_manager'])
+    if (canCapture) {
+        gtag('event', 'click', {
+            'event_category': 'outbound',
+            'event_label': url,
+            'transport_type': 'beacon',
+            'event_callback': function () { window.open(url, "_blank"); }
+        })
+    }
+
+    return canCapture
 }
 
 const $ingredients = $redirects.map((r) => {
@@ -49,8 +54,7 @@ $(document).ready(() => {
                 })
                 anchor.text(ingredient)
                 anchor.on('click', function () {
-                    captureOutboundLink(this.href)
-                    return false
+                    return !captureOutboundLink(this.href)
                 })
 
                 const span = $('<span class="icon-star" aria-hidden="true"></span>')
